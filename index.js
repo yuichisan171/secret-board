@@ -6,11 +6,11 @@ const router = require('./lib/router');
 const basic = auth.basic({
   realm: 'Enter username and password.',
   file: './users.htpasswd'
-})
+});
 
 const server = http
   .createServer(basic, (req, res) => {
-    router.route(req, res); //routerモジュールのroute関数を呼べば、必要なリクエストの振り分け処理を行ってくれる
+    router.route(req, res);
   })
   .on('error', e => {
     console.error('Server Error', e);
